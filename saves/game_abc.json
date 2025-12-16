@@ -1,0 +1,421 @@
+{
+  "map": [
+    {
+      "path": "map.tmx",
+      "teleport": [
+        {
+          "x": 24,
+          "y": 22,
+          "destination": "ice.tmx"
+        },
+        {
+          "x": 43,
+          "y": 30,
+          "destination": "gym.tmx"
+        }
+      ],
+      "player": {
+        "x": 16,
+        "y": 30
+      },
+      "enemy_trainers": [
+        {
+          "x": 24.0,
+          "y": 29.0,
+          "classification": "stationary",
+          "facing": "DOWN",
+          "countdown": 0,
+          "max_tiles": 2,
+          "monster": {
+            "name": "Pikachu",
+            "hp": 45,
+            "max_hp": 100,
+            "level": 35,
+            "sprite_path": "menu_sprites/menusprite1.png",
+            "countdown": 540
+          }
+        },
+        {
+          "x": 50.0,
+          "y": 19.0,
+          "classification": "stationary",
+          "facing": "UP",
+          "countdown": 0,
+          "max_tiles": 2,
+          "monster": {
+            "name": "Ewolee",
+            "hp": 150,
+            "max_hp": 190,
+            "level": 28,
+            "sprite_path": "menu_sprites/menusprite15.png",
+            "countdown": 540
+          }
+        },
+        {
+          "x": 31.0,
+          "y": 31.0,
+          "classification": "stationary",
+          "facing": "UP",
+          "countdown": 0,
+          "max_tiles": 2,
+          "monster": {
+            "name": "Dragonite",
+            "hp": 180,
+            "max_hp": 220,
+            "level": 40,
+            "sprite_path": "menu_sprites/menusprite16.png",
+            "countdown": 540
+          }
+        }
+      ],
+      "shops": [
+        {
+          "x": 16,
+          "y": 28,
+          "monsters": [
+            {
+              "name": "Pikachu",
+              "hp": 100,
+              "max_hp": 100,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite1.png",
+              "price": 200
+            },
+            {
+              "name": "Dragonite",
+              "hp": 220,
+              "max_hp": 220,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite16.png",
+              "price": 300
+            }
+          ]
+        },
+        {
+          "x": 54,
+          "y": 14,
+          "monsters": [
+            {
+              "name": "Pikachu",
+              "hp": 100,
+              "max_hp": 100,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite1.png",
+              "price": 200
+            },
+            {
+              "name": "Ewolee",
+              "hp": 190,
+              "max_hp": 190,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite15.png",
+              "price": 250
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "gym.tmx",
+      "teleport": [
+        {
+          "x": 13,
+          "y": 15,
+          "destination": "map.tmx"
+        },
+        {
+          "x": 12,
+          "y": 15,
+          "destination": "map.tmx"
+        },
+        {
+          "x": 14,
+          "y": 15,
+          "destination": "map.tmx"
+        }
+      ],
+      "player": {
+        "x": 12,
+        "y": 12
+      },
+      "enemy_trainers": [
+        {
+          "x": 15.0,
+          "y": 10.5,
+          "classification": "stationary",
+          "facing": "DOWN",
+          "countdown": 540,
+          "max_tiles": 2,
+          "monster": {
+            "name": "Venusaur",
+            "hp": 80,
+            "max_hp": 160,
+            "level": 20,
+            "sprite_path": "menu_sprites/menusprite4.png",
+            "countdown": 540
+          }
+        },
+        {
+          "x": 9.0,
+          "y": 10.5,
+          "classification": "stationary",
+          "facing": "DOWN",
+          "countdown": 540,
+          "max_tiles": 2,
+          "monster": {
+            "name": "Gengar",
+            "hp": 95,
+            "max_hp": 140,
+            "level": 22,
+            "sprite_path": "menu_sprites/menusprite5.png",
+            "countdown": 540
+          }
+        },
+        {
+          "x": 20.0,
+          "y": 3.0,
+          "classification": "stationary",
+          "facing": "RIGHT",
+          "countdown": 540,
+          "max_tiles": 2,
+          "monster": {
+            "name": "Flamanite",
+            "hp": 180,
+            "max_hp": 260,
+            "level": 36,
+            "sprite_path": "menu_sprites/menusprite7.png",
+            "countdown": 540
+          }
+        }
+      ],
+      "shops": [
+        {
+          "x": 14,
+          "y": 7,
+          "monsters": [
+            {
+              "name": "Gengar",
+              "hp": 140,
+              "max_hp": 140,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite5.png",
+              "price": 200
+            },
+            {
+              "name": "Venusaur",
+              "hp": 160,
+              "max_hp": 160,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite4.png",
+              "price": 250
+            }
+          ]
+        },
+        {
+          "x": 4,
+          "y": 3,
+          "monsters": [
+            {
+              "name": "Gengar",
+              "hp": 140,
+              "max_hp": 140,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite5.png",
+              "price": 200
+            },
+            {
+              "name": "Flamanite",
+              "hp": 180,
+              "max_hp": 260,
+              "level": 36,
+              "sprite_path": "menu_sprites/menusprite7.png",
+              "price": 300
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "ice.tmx",
+      "teleport": [
+        {
+          "x": 18,
+          "y": 21,
+          "destination": "map.tmx"
+        }
+      ],
+      "player": {
+        "x": 13,
+        "y": 19
+      },
+      "enemy_trainers": [
+        {
+          "x": 11.5,
+          "y": 7.5,
+          "classification": "stationary",
+          "facing": "DOWN",
+          "countdown": 540,
+          "max_tiles": 2,
+          "monster": {
+            "name": "Ifocy",
+            "hp": 64,
+            "max_hp": 150,
+            "level": 15,
+            "sprite_path": "menu_sprites/menusprite6.png",
+            "countdown": 540
+          }
+        },
+        {
+          "x": 23.0,
+          "y": 13.5,
+          "classification": "stationary",
+          "facing": "UP",
+          "countdown": 540,
+          "max_tiles": 2,
+          "monster": {
+            "name": "raiite",
+            "hp": 88,
+            "max_hp": 170,
+            "level": 22,
+            "sprite_path": "menu_sprites/menusprite10.png",
+            "countdown": 540
+          }
+        },
+        {
+          "x": 30.0,
+          "y": 19.0,
+          "classification": "stationary",
+          "facing": "RIGHT",
+          "countdown": 540,
+          "max_tiles": 2,
+          "monster": {
+            "name": "docitiz",
+            "hp": 182,
+            "max_hp": 270,
+            "level": 35,
+            "sprite_path": "menu_sprites/menusprite12.png",
+            "countdown": 540
+          }
+        }
+      ],
+      "shops": [
+        {
+          "x": 31,
+          "y": 10,
+          "monsters": [
+            {
+              "name": "Ifocy",
+              "hp": 150,
+              "max_hp": 150,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite6.png",
+              "price": 200
+            },
+            {
+              "name": "raiite",
+              "hp": 170,
+              "max_hp": 170,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite10.png",
+              "price": 250
+            }
+          ]
+        },
+        {
+          "x": 11,
+          "y": 17,
+          "monsters": [
+            {
+              "name": "Ifocy",
+              "hp": 150,
+              "max_hp": 150,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite6.png",
+              "price": 200
+            },
+            {
+              "name": "docitiz",
+              "hp": 270,
+              "max_hp": 270,
+              "level": 10,
+              "sprite_path": "menu_sprites/menusprite12.png",
+              "price": 300
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "current_map": "map.tmx",
+  "player": {
+    "x": 16.0,
+    "y": 30.0
+  },
+  "bag": {
+    "monsters": [
+      {
+        "name": "Pikachu",
+        "hp": 41,
+        "max_hp": 100,
+        "level": 35,
+        "sprite_path": "menu_sprites/menusprite1.png",
+        "countdown": 540
+      },
+      {
+        "name": "Pikachu",
+        "hp": 100,
+        "max_hp": 100,
+        "level": 25,
+        "sprite_path": "menu_sprites/menusprite1.png",
+        "countdown": 540
+      },
+      {
+        "name": "Pikachu",
+        "hp": 41,
+        "max_hp": 100,
+        "level": 25,
+        "sprite_path": "menu_sprites/menusprite1.png",
+        "countdown": 540
+      },
+      {
+        "name": "Ewolee",
+        "hp": 95,
+        "max_hp": 190,
+        "level": 16,
+        "sprite_path": "menu_sprites/menusprite15.png"
+      }
+    ],
+    "items": [
+      {
+        "name": "Heal Potion",
+        "count": 2,
+        "sprite_path": "ingame_ui/options4.png"
+      },
+      {
+        "name": "Strength Potion",
+        "count": 2,
+        "sprite_path": "ingame_ui/options1.png"
+      },
+      {
+        "name": "Defense Potion",
+        "count": 3,
+        "sprite_path": "ingame_ui/options2.png"
+      },
+      {
+        "name": "Coins",
+        "count": 0,
+        "sprite_path": "ingame_ui/coin.png"
+      },
+      {
+        "name": "Pokeball",
+        "count": 8,
+        "sprite_path": "ingame_ui/ball.png"
+      },
+      {
+        "name": "Max Potion",
+        "count": 2,
+        "sprite_path": "ingame_ui/potion.png"
+      }
+    ]
+  }
+}
