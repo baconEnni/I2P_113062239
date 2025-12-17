@@ -768,7 +768,7 @@ class GameScene(Scene):
         if self.game_manager.collide_bush and not self.game_manager.overlay_open and (self.first_collide_bush or self.can_catch):
             if self.first_collide_bush:
                 self.can_catch = 1 if random.random() < 1/4 else 0 # bush_has monster with possibility 1/5
-            self.first_collide_bush = False
+                self.first_collide_bush = False
             
             if self.can_catch:
                 self.catch_button.draw(screen)

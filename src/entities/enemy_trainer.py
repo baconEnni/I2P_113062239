@@ -30,6 +30,8 @@ class EnemyTrainer(Entity):
     detected: bool
     los_direction: Direction
     monster: dict
+    
+    original_hp: int
 
     @override
     def __init__(
@@ -59,6 +61,7 @@ class EnemyTrainer(Entity):
         self.detected = False
         
         self.monster = monster
+        self.original_hp = monster["original_hp"]
 
     @override
     def update(self, dt: float) -> None:

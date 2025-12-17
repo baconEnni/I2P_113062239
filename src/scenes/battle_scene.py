@@ -161,7 +161,7 @@ class BattleScene(Scene):
         self.hp_deduction = None
         
         self.element_list = [
-            ["Pikachu", "Ewolee", "Dragonite"],
+            ["Pikachu", "Ewolee", "Dragonite", "Piculakus", "Pigodicha"],
             ["Venusaur", "Gengar", "Flamanite"],
             ["Ifocy", "raiite", "docitiz"]
         ]
@@ -176,6 +176,18 @@ class BattleScene(Scene):
                     "hp": 50,
                     "max_hp": 100,
                     "sprite_path": "menu_sprites/menusprite1.png",
+                },
+                {
+                    "name": "Piculakus",
+                    "hp": 60,
+                    "max_hp": 120,
+                    "sprite_path": "menu_sprites/menusprite2.png",
+                },
+                {
+                    "name": "Pigodicha",
+                    "hp": 70,
+                    "max_hp": 140,
+                    "sprite_path": "menu_sprites/menusprite3.png",
                 },
                 {
                     "name": "Ewolee",
@@ -273,9 +285,13 @@ class BattleScene(Scene):
                 self.player_extra_damage += 10
             elif idx == 2:
                 self.defend = True
+            elif idx == 5:
+                self.hp_before_maxpotion = self.player_MONSTER.hp
         else:
             if idx == 0:
-                self.player_MONSTER.hp = min(100, self.player_MONSTER.hp + 40/80)
+                self.player_MONSTER.hp = min(self.player_MONSTER.max_hp, self.player_MONSTER.hp + 40/80)
+            elif idx == 5:
+                self.player_MONSTER.hp = min(self.player_MONSTER.max_hp, self.player_MONSTER.hp + (self.player_MONSTER.max_hp-self.hp_before_maxpotion)/80)
 
     def switch_monster(self):
         if self.game_manager.bag._items_data[3]["count"] < 5:
@@ -289,20 +305,27 @@ class BattleScene(Scene):
     def random_monster_by_map(self, map_idx: int, original_monster_name: int) -> dict:
         monsters = self.all_monster[map_idx]
 
-        # possibilities: 1/4, 1/2, 1/8 (the medium)
-        weights = [2, 4, 1]
+        # possibilities: 1/4, 1/2, 1/8, 1/16, 1/32 (the medium)
+        weights = [8, 2, 1, 16, 4]
         chosen = random.choices(monsters, weights=weights, k=1)[0]
         while chosen["name"] == original_monster_name:
             chosen = random.choices(monsters, weights=weights, k=1)[0]
         idx = monsters.index(chosen)
+        
+        if chosen["name"] == "Piculakus":
+            lvl = random.randint(60, 90)
+        elif chosen["name"] == "Pigodicha":
+            lvl = random.randint(100, 120)
+        else:
+            lvl = random.randint(10*(idx+1), 15*(idx+1))
 
         # create monster
         return {
             "name": chosen["name"],
             "hp": random.randint(40, 70),
             "max_hp": chosen["max_hp"],
-            "level": random.randint(10*(idx+1), 15*(idx+1)),
-            "sprite_path": chosen["sprite_path"],
+            "level": lvl,
+            "sprite_path": chosen["sprite_path"]
         }
     
     def end_battle(self):
@@ -330,6 +353,7 @@ class BattleScene(Scene):
             del self.game_manager.enemy_monster["countdown"]
             
         scene_manager.change_scene("game")
+        self.show_items = False
         
     @override
     def enter(self) -> None:
@@ -339,7 +363,8 @@ class BattleScene(Scene):
         self.player_MONSTER = MonsterObj(self.player_monster)
         self.enemy_monster = self.game_manager.enemy_monster
         self.enemy_MONSTER = MonsterObj(self.enemy_monster)
-        self.enemy_MONSTER_originalHP = self.enemy_MONSTER.hp
+
+        self.enemy_MONSTER_originalHP = self.game_manager.collide_enemy_trainer.original_hp
         
         player_element_idx = None
         enemy_element_idx = None
@@ -375,6 +400,16 @@ class BattleScene(Scene):
             )
             self.items_buttons.append(btn)
             x += 100
+        
+        btn = Button(
+            "ingame_ui/potion.png",
+            "ingame_ui/potion_hover.png",
+            x, 
+            GameSettings.SCREEN_HEIGHT- 100,
+            50, 50,
+            lambda idx=5: self.use_item(idx)   # '''change'''
+        )
+        self.items_buttons.append(btn)
         
         self.game_manager.win_message = False
 
@@ -459,8 +494,10 @@ class BattleScene(Scene):
                     elif self.item_idx == 1:
                         self.message = f"{self.player_MONSTER.name} ATTACK power UP!!!"
                         self.item_message = "+10"
+                    elif self.item_idx == 2:
+                        self.message = f"got a SHIELD"
                     else:
-                        self.message = f"got a SHILED"
+                        self.message = f"drink MAX POTION"
             # choose items
             elif self.show_items:
                 self.message = f"pick a tool"
@@ -471,6 +508,8 @@ class BattleScene(Scene):
             ## items
             if self.show_items:
                 for idx, btn in enumerate(self.items_buttons):
+                    if idx == 3:
+                        idx = 5
                     if (self.game_manager.bag._items_data[idx]["count"] > 0 and self.timer == 0) or (self.game_manager.bag._items_data[idx]["count"] == 0 and self.timer == 1):
                         btn.update(dt)
             if self.timer == 69 and self.is_attack:
@@ -547,6 +586,8 @@ class BattleScene(Scene):
                 x = GameSettings.SCREEN_WIDTH*2/7 + 270
                 for idx, btn in enumerate(self.items_buttons):
                     btn.draw(screen)
+                    if idx == 3:
+                        idx = 5
                     item_count_text = self.content_font.render(f"{self.game_manager.bag._items_data[idx]["count"]}", True, (255, 255, 255))
                     screen.blit(item_count_text, (x + 40, GameSettings.SCREEN_HEIGHT- 100))
                     x += 100

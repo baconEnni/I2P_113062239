@@ -28,9 +28,10 @@
           "max_tiles": 2,
           "monster": {
             "name": "Pikachu",
-            "hp": 45,
+            "hp": 20,
+            "original_hp": 70,
             "max_hp": 100,
-            "level": 35,
+            "level": 25,
             "sprite_path": "menu_sprites/menusprite1.png",
             "countdown": 540
           }
@@ -45,6 +46,7 @@
           "monster": {
             "name": "Ewolee",
             "hp": 150,
+            "original_hp": 150,
             "max_hp": 190,
             "level": 28,
             "sprite_path": "menu_sprites/menusprite15.png",
@@ -61,6 +63,7 @@
           "monster": {
             "name": "Dragonite",
             "hp": 180,
+            "original_hp": 180,
             "max_hp": 220,
             "level": 40,
             "sprite_path": "menu_sprites/menusprite16.png",
@@ -149,6 +152,7 @@
           "monster": {
             "name": "Venusaur",
             "hp": 80,
+            "original_hp": 80,
             "max_hp": 160,
             "level": 20,
             "sprite_path": "menu_sprites/menusprite4.png",
@@ -165,6 +169,7 @@
           "monster": {
             "name": "Gengar",
             "hp": 95,
+            "original_hp": 95,
             "max_hp": 140,
             "level": 22,
             "sprite_path": "menu_sprites/menusprite5.png",
@@ -181,6 +186,7 @@
           "monster": {
             "name": "Flamanite",
             "hp": 180,
+            "original_hp": 180,
             "max_hp": 260,
             "level": 36,
             "sprite_path": "menu_sprites/menusprite7.png",
@@ -259,6 +265,7 @@
           "monster": {
             "name": "Ifocy",
             "hp": 64,
+            "original_hp": 64,
             "max_hp": 150,
             "level": 15,
             "sprite_path": "menu_sprites/menusprite6.png",
@@ -275,6 +282,7 @@
           "monster": {
             "name": "raiite",
             "hp": 88,
+            "original_hp": 88,
             "max_hp": 170,
             "level": 22,
             "sprite_path": "menu_sprites/menusprite10.png",
@@ -291,6 +299,7 @@
           "monster": {
             "name": "docitiz",
             "hp": 182,
+            "original_hp": 182,
             "max_hp": 270,
             "level": 35,
             "sprite_path": "menu_sprites/menusprite12.png",
@@ -355,23 +364,7 @@
     "monsters": [
       {
         "name": "Pikachu",
-        "hp": 41,
-        "max_hp": 100,
-        "level": 35,
-        "sprite_path": "menu_sprites/menusprite1.png",
-        "countdown": 540
-      },
-      {
-        "name": "Pikachu",
-        "hp": 100,
-        "max_hp": 100,
-        "level": 25,
-        "sprite_path": "menu_sprites/menusprite1.png",
-        "countdown": 540
-      },
-      {
-        "name": "Pikachu",
-        "hp": 41,
+        "hp": 35,
         "max_hp": 100,
         "level": 25,
         "sprite_path": "menu_sprites/menusprite1.png",
@@ -381,34 +374,34 @@
         "name": "Ewolee",
         "hp": 95,
         "max_hp": 190,
-        "level": 16,
+        "level": 13,
         "sprite_path": "menu_sprites/menusprite15.png"
       }
     ],
     "items": [
       {
         "name": "Heal Potion",
-        "count": 2,
+        "count": 5,
         "sprite_path": "ingame_ui/options4.png"
       },
       {
         "name": "Strength Potion",
-        "count": 2,
+        "count": 3,
         "sprite_path": "ingame_ui/options1.png"
       },
       {
         "name": "Defense Potion",
-        "count": 3,
+        "count": 6,
         "sprite_path": "ingame_ui/options2.png"
       },
       {
         "name": "Coins",
-        "count": 0,
+        "count": 80,
         "sprite_path": "ingame_ui/coin.png"
       },
       {
         "name": "Pokeball",
-        "count": 8,
+        "count": 9,
         "sprite_path": "ingame_ui/ball.png"
       },
       {
