@@ -693,6 +693,10 @@ class GameScene(Scene):
             mute_move_UI_image = pg.transform.scale(mute_move_UI_image, (15, 25))
             screen.blit(mute_move_UI_image, pg.Rect(overlay_x+ (185 if GameSettings.MUTE == "OFF" else 200), overlay_y+195, 15, 25))
             
+            element_image = resource_manager.get_image("backgrounds/elements.png")
+            element_image = pg.transform.scale(element_image, (150 , 130))
+            screen.blit(element_image, pg.Rect(overlay_x+350 , overlay_y+250, 150, 130))
+            
         if self.show_backpack:
             # draw buttons
             self.x_button.draw(screen)
