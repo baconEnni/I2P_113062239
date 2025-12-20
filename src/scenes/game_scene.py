@@ -443,7 +443,11 @@ class GameScene(Scene):
             self.show_shop and not(input_manager.key_down(pg.K_UP) or 
                                    input_manager.key_down(pg.K_DOWN) or 
                                    input_manager.key_down(pg.K_RIGHT) or 
-                                   input_manager.key_down(pg.K_LEFT)))) and not (self.show_backpack or self.show_setting):
+                                   input_manager.key_down(pg.K_LEFT) or
+                                   input_manager.key_down(pg.K_w) or
+                                   input_manager.key_down(pg.K_a) or
+                                   input_manager.key_down(pg.K_s) or
+                                   input_manager.key_down(pg.K_d)))) and not (self.show_backpack or self.show_setting):
             if self.page == 0:
                 self.page = 1
             self.show_shop = True
